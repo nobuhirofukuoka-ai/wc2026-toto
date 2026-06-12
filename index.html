@@ -28,11 +28,11 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN','Hiragino Sa
 .header-sub{font-size:11px;color:#8a8a80;letter-spacing:0.03em}
 
 /* POINTS STRIP */
-.pts-strip{background:var(--yellow);display:grid;grid-template-columns:repeat(4,1fr)}
-.pts-item{padding:9px 4px;text-align:center;border-right:1px solid rgba(62,62,59,0.15)}
+.pts-strip{background:var(--yellow);display:grid;grid-template-columns:repeat(5,1fr)}
+.pts-item{padding:9px 3px;text-align:center;border-right:1px solid rgba(62,62,59,0.15)}
 .pts-item:last-child{border-right:none}
-.pts-num{font-size:13px;font-weight:800;color:var(--dark)}
-.pts-lbl{font-size:9px;color:var(--dark);opacity:0.65;margin-top:2px;line-height:1.3}
+.pts-num{font-size:11px;font-weight:800;color:var(--dark)}
+.pts-lbl{font-size:8.5px;color:var(--dark);opacity:0.65;margin-top:2px;line-height:1.3}
 
 /* BODY */
 .body{padding:0 16px 32px}
@@ -53,17 +53,29 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN','Hiragino Sa
 
 /* GROUP CARDS */
 .group-card{background:#fff;border-radius:14px;margin-bottom:8px;overflow:hidden;border:1px solid rgba(62,62,59,0.07)}
-.group-hd{background:var(--dark);padding:6px 13px;display:flex;align-items:center}
+.group-hd{background:var(--dark);padding:6px 13px;display:flex;align-items:center;justify-content:space-between}
 .group-hd span{font-size:10px;font-weight:800;color:var(--yellow);letter-spacing:0.12em}
+.group-hd .hd-count{font-size:9px;color:#8a8a80;font-weight:600}
+.group-hd .hd-count.full{color:var(--yellow)}
 .group-teams{display:grid;grid-template-columns:1fr 1fr}
-.tbtn{display:flex;align-items:center;gap:7px;padding:10px 12px;background:transparent;border:none;border-bottom:0.5px solid rgba(62,62,59,0.07);border-right:0.5px solid rgba(62,62,59,0.07);cursor:pointer;text-align:left;width:100%;transition:background 0.15s;-webkit-tap-highlight-color:transparent}
+.tbtn{display:flex;align-items:center;gap:7px;padding:10px 12px;background:transparent;border:none;border-bottom:0.5px solid rgba(62,62,59,0.07);border-right:0.5px solid rgba(62,62,59,0.07);cursor:pointer;text-align:left;width:100%;transition:background 0.15s;-webkit-tap-highlight-color:transparent;position:relative}
 .tbtn:nth-child(2n){border-right:none}
 .tbtn:nth-last-child(-n+2){border-bottom:none}
 .tbtn:active{background:rgba(255,217,50,0.3)}
 .tbtn.sel{background:var(--yellow)}
+.tbtn.disabled{opacity:0.35;cursor:not-allowed}
 .tbtn .fl{font-size:17px;line-height:1;flex-shrink:0}
 .tbtn .nm{font-size:11px;color:var(--dark);font-weight:500;line-height:1.3}
 .tbtn.sel .nm{font-weight:700}
+
+/* B16 SECTION */
+.b16-info{font-size:11px;color:#6b6b66;background:#fff;padding:10px 12px;border-radius:10px;margin-bottom:10px;line-height:1.5;border:1px solid rgba(62,62,59,0.07)}
+.b16-empty{font-size:11px;color:#bbb;text-align:center;padding:18px;background:#fff;border-radius:14px}
+.b16-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.b16btn{display:flex;align-items:center;gap:7px;padding:10px 11px;background:#fff;border:1.5px solid rgba(62,62,59,0.1);border-radius:10px;cursor:pointer;font-size:11px;color:var(--dark);transition:all 0.15s;-webkit-tap-highlight-color:transparent;text-align:left;font-weight:500}
+.b16btn:active{transform:scale(0.97)}
+.b16btn.sel{background:var(--yellow);border-color:var(--yellow);font-weight:700}
+.b16btn .fl{font-size:15px;line-height:1;flex-shrink:0}
 
 /* FINALISTS */
 .finalist-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
@@ -73,8 +85,8 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN','Hiragino Sa
 .fc-pick{padding:10px 10px 4px;min-height:38px;display:flex;align-items:center;justify-content:center}
 .fc-pick .empty{font-size:10px;color:#bbb;text-align:center;line-height:1.5}
 .fc-pick .picked{font-size:12px;font-weight:700;color:var(--orange)}
-.fc-list{padding:2px 6px 8px}
-.ftbtn{display:flex;align-items:center;gap:5px;width:100%;padding:6px 7px;border:none;border-radius:8px;background:transparent;cursor:pointer;font-size:11px;color:var(--dark);margin-bottom:3px;transition:background 0.15s;-webkit-tap-highlight-color:transparent}
+.fc-list{padding:2px 6px 8px;max-height:240px;overflow-y:auto}
+.ftbtn{display:flex;align-items:center;gap:5px;width:100%;padding:6px 7px;border:none;border-radius:8px;background:transparent;cursor:pointer;font-size:11px;color:var(--dark);margin-bottom:3px;transition:background 0.15s;-webkit-tap-highlight-color:transparent;text-align:left}
 .ftbtn:active{background:rgba(255,217,50,0.3)}
 .ftbtn.sel{background:var(--yellow);font-weight:700}
 
@@ -113,6 +125,7 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN','Hiragino Sa
 .res-sec-ttl{font-size:10px;font-weight:700;color:#bbb;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:10px}
 .chips{display:flex;flex-wrap:wrap;gap:5px}
 .chip{font-size:11px;padding:4px 9px;background:var(--yellow);color:var(--dark);border-radius:10px;font-weight:500}
+.chip.b16-chip{background:var(--orange-light);color:var(--orange)}
 .res-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:0.5px solid rgba(62,62,59,0.07)}
 .res-row:last-child{border-bottom:none}
 .res-key{font-size:12px;color:#6b6b66}
@@ -141,7 +154,8 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN','Hiragino Sa
   </div>
 
   <div class="pts-strip">
-    <div class="pts-item"><div class="pts-num">100pt</div><div class="pts-lbl">ベスト16<br>1国あたり</div></div>
+    <div class="pts-item"><div class="pts-num">50pt</div><div class="pts-lbl">グループ突破<br>1チーム</div></div>
+    <div class="pts-item"><div class="pts-num">50pt</div><div class="pts-lbl">ベスト16<br>1チーム</div></div>
     <div class="pts-item"><div class="pts-num">1000pt</div><div class="pts-lbl">決勝進出<br>各チーム</div></div>
     <div class="pts-item"><div class="pts-num">1000pt</div><div class="pts-lbl">日本代表<br>進出ライン</div></div>
     <div class="pts-item"><div class="pts-num">1000pt</div><div class="pts-lbl">優勝国<br>正解</div></div>
@@ -149,27 +163,45 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN','Hiragino Sa
 
   <div class="body">
 
-    <!-- STEP 1 -->
+    <!-- STEP 1: GROUP STAGE -->
     <div class="section">
       <div class="sec-header">
         <div class="sec-num">1</div>
-        <div class="sec-title">ベスト16を予想</div>
-        <div class="sec-pts">各100pt</div>
+        <div class="sec-title">グループ突破24チーム</div>
+        <div class="sec-pts">各50pt</div>
       </div>
-      <div class="sec-desc">各グループから合計16カ国を選んでください</div>
+      <div class="sec-desc">各グループから上位2チームずつ予想（計24チーム）</div>
       <div class="counter-row">
         <span class="counter-txt">選択中</span>
-        <span class="counter-num"><span id="r16cnt">0</span> / 16カ国</span>
+        <span class="counter-num"><span id="grpCnt">0</span> / 24チーム</span>
       </div>
-      <div class="prog-bar"><div class="prog-fill" id="prog"></div></div>
-      <div id="r16-warn" class="warn">⚠ 16カ国を選んでください</div>
+      <div class="prog-bar"><div class="prog-fill" id="prog1"></div></div>
+      <div id="grp-warn" class="warn">⚠ 各グループから2チームずつ選んでください</div>
       <div id="group-area"></div>
     </div>
 
-    <!-- STEP 2 -->
+    <!-- STEP 2: BEST 16 -->
     <div class="section">
       <div class="sec-header">
         <div class="sec-num">2</div>
+        <div class="sec-title">ベスト16進出16チーム</div>
+        <div class="sec-pts">各50pt</div>
+      </div>
+      <div class="sec-desc">グループ突破した24チームから、ベスト16に残る16チームを選択</div>
+      <div class="b16-info">💡 ステップ①で予想したチームの中から、ベスト32を勝ち抜くと思う16チームを選んでください</div>
+      <div class="counter-row">
+        <span class="counter-txt">選択中</span>
+        <span class="counter-num"><span id="b16Cnt">0</span> / 16チーム</span>
+      </div>
+      <div class="prog-bar"><div class="prog-fill" id="prog2"></div></div>
+      <div id="b16-warn" class="warn">⚠ 16チームを選んでください</div>
+      <div id="b16-area"><div class="b16-empty">先にステップ①で24チームを選んでください</div></div>
+    </div>
+
+    <!-- STEP 3: FINALISTS -->
+    <div class="section">
+      <div class="sec-header">
+        <div class="sec-num">3</div>
         <div class="sec-title">決勝進出2チームを予想</div>
         <div class="sec-pts">各1000pt</div>
       </div>
@@ -188,10 +220,10 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN','Hiragino Sa
       </div>
     </div>
 
-    <!-- STEP 3 -->
+    <!-- STEP 4: JAPAN -->
     <div class="section">
       <div class="sec-header">
-        <div class="sec-num">3</div>
+        <div class="sec-num">4</div>
         <div class="sec-title">🇯🇵 日本代表の進出ライン</div>
         <div class="sec-pts">1000pt</div>
       </div>
@@ -199,10 +231,10 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN','Hiragino Sa
       <div class="round-grid" id="japan-btns"></div>
     </div>
 
-    <!-- STEP 4 -->
+    <!-- STEP 5: WINNER -->
     <div class="section">
       <div class="sec-header">
-        <div class="sec-num">4</div>
+        <div class="sec-num">5</div>
         <div class="sec-title">優勝国を予想</div>
         <div class="sec-pts">1000pt</div>
       </div>
@@ -229,8 +261,12 @@ body{font-family:'Helvetica Neue',Arial,'Hiragino Kaku Gothic ProN','Hiragino Sa
   </div>
   <div class="res-body">
     <div class="res-card">
-      <div class="res-sec-ttl">ベスト16 予想（最大1,600pt）</div>
-      <div class="chips" id="res-chips"></div>
+      <div class="res-sec-ttl">グループ突破 24チーム（最大1,200pt）</div>
+      <div class="chips" id="res-grp-chips"></div>
+    </div>
+    <div class="res-card">
+      <div class="res-sec-ttl">ベスト16 進出 16チーム（最大800pt）</div>
+      <div class="chips" id="res-b16-chips"></div>
     </div>
     <div class="res-card">
       <div class="res-sec-ttl">決勝進出 / 優勝国</div>
@@ -270,45 +306,130 @@ const G={
   L:[{f:'🏴󠁧󠁢󠁥󠁮󠁧󠁿',n:'イングランド'},{f:'🇭🇷',n:'クロアチア'},{f:'🇬🇭',n:'ガーナ'},{f:'🇵🇦',n:'パナマ'}]
 };
 const ROUNDS=['グループリーグ敗退','ベスト32','ベスト16','ベスト8','ベスト4','準優勝','優勝🏆'];
-let r16=new Set(),f1=null,f2=null,jpRound=null,winner=null;
+
+// Group selection: Map<groupKey, Set<teamName>>
+const groupPicks={};
+Object.keys(G).forEach(k=>groupPicks[k]=new Set());
+
+let b16=new Set(),f1=null,f2=null,jpRound=null,winner=null;
 
 function allTeams(){return Object.values(G).flat();}
 function teamInfo(n){return allTeams().find(t=>t.n===n)||{f:'',n:n};}
+function getAllGroupPicks(){
+  const arr=[];
+  Object.keys(G).forEach(k=>groupPicks[k].forEach(t=>arr.push(t)));
+  return arr;
+}
+function totalGroupPicks(){
+  return Object.values(groupPicks).reduce((s,set)=>s+set.size,0);
+}
 
+/* ----- STEP 1: GROUP STAGE ----- */
 function buildGroups(){
   const area=document.getElementById('group-area');
   Object.entries(G).forEach(([g,teams])=>{
     const card=document.createElement('div');card.className='group-card';
     const hd=document.createElement('div');hd.className='group-hd';
-    hd.innerHTML='<span>GROUP '+g+'</span>';
+    hd.innerHTML='<span>GROUP '+g+'</span><span class="hd-count" id="hd-'+g+'">0 / 2</span>';
     const grid=document.createElement('div');grid.className='group-teams';
     teams.forEach(t=>{
       const btn=document.createElement('button');
-      btn.className='tbtn';btn.id='t-'+t.n;
+      btn.className='tbtn';btn.id='g-'+g+'-'+t.n;
       btn.innerHTML='<span class="fl">'+t.f+'</span><span class="nm">'+t.n+'</span>';
-      btn.addEventListener('click',()=>toggleR16(t.n,btn));
+      btn.addEventListener('click',()=>toggleGroupPick(g,t.n,btn));
       grid.appendChild(btn);
     });
     card.appendChild(hd);card.appendChild(grid);area.appendChild(card);
   });
 }
 
-function toggleR16(name,btn){
-  if(r16.has(name)){
-    r16.delete(name);btn.classList.remove('sel');
-    if(f1===name){f1=null;}
-    if(f2===name){f2=null;}
+function toggleGroupPick(g,name,btn){
+  const set=groupPicks[g];
+  if(set.has(name)){
+    set.delete(name);
+    btn.classList.remove('sel');
+    // Cascade: if removed from group, also remove from b16, finalists, winner
+    if(b16.has(name)){b16.delete(name);}
+    if(f1===name)f1=null;
+    if(f2===name)f2=null;
     if(winner===name)winner=null;
   } else {
-    if(r16.size>=16){document.getElementById('r16-warn').style.display='block';return;}
-    r16.add(name);btn.classList.add('sel');
+    if(set.size>=2){
+      document.getElementById('grp-warn').textContent='⚠ グループ'+g+'は2チームまでです';
+      document.getElementById('grp-warn').style.display='block';
+      setTimeout(()=>{document.getElementById('grp-warn').style.display='none';},2000);
+      return;
+    }
+    set.add(name);
+    btn.classList.add('sel');
   }
-  document.getElementById('r16-warn').style.display='none';
-  document.getElementById('r16cnt').textContent=r16.size;
-  document.getElementById('prog').style.width=(r16.size/16*100)+'%';
-  updateFinalists();updateWinner();
+  updateGroupUI(g);
+  updateProgress();
+  updateB16Area();
+  updateFinalists();
+  updateWinner();
 }
 
+function updateGroupUI(g){
+  const cnt=groupPicks[g].size;
+  const el=document.getElementById('hd-'+g);
+  el.textContent=cnt+' / 2';
+  el.classList.toggle('full',cnt===2);
+}
+
+function updateProgress(){
+  const total=totalGroupPicks();
+  document.getElementById('grpCnt').textContent=total;
+  document.getElementById('prog1').style.width=(total/24*100)+'%';
+}
+
+/* ----- STEP 2: BEST 16 ----- */
+function updateB16Area(){
+  const area=document.getElementById('b16-area');
+  const picks=getAllGroupPicks();
+  if(picks.length===0){
+    area.innerHTML='<div class="b16-empty">先にステップ①で24チームを選んでください</div>';
+    document.getElementById('b16Cnt').textContent=0;
+    document.getElementById('prog2').style.width='0%';
+    return;
+  }
+  area.innerHTML='';
+  const grid=document.createElement('div');grid.className='b16-grid';
+  picks.forEach(t=>{
+    const info=teamInfo(t);
+    const btn=document.createElement('button');
+    btn.className='b16btn'+(b16.has(t)?' sel':'');
+    btn.innerHTML='<span class="fl">'+info.f+'</span><span>'+t+'</span>';
+    btn.addEventListener('click',()=>toggleB16(t,btn));
+    grid.appendChild(btn);
+  });
+  area.appendChild(grid);
+  document.getElementById('b16Cnt').textContent=b16.size;
+  document.getElementById('prog2').style.width=(b16.size/16*100)+'%';
+}
+
+function toggleB16(name,btn){
+  if(b16.has(name)){
+    b16.delete(name);btn.classList.remove('sel');
+    if(f1===name)f1=null;
+    if(f2===name)f2=null;
+    if(winner===name)winner=null;
+  } else {
+    if(b16.size>=16){
+      document.getElementById('b16-warn').textContent='⚠ 16チームまでです';
+      document.getElementById('b16-warn').style.display='block';
+      setTimeout(()=>{document.getElementById('b16-warn').style.display='none';},2000);
+      return;
+    }
+    b16.add(name);btn.classList.add('sel');
+  }
+  document.getElementById('b16Cnt').textContent=b16.size;
+  document.getElementById('prog2').style.width=(b16.size/16*100)+'%';
+  updateFinalists();
+  updateWinner();
+}
+
+/* ----- STEP 3: FINALISTS ----- */
 function updateFinalists(){
   [1,2].forEach(n=>{
     const other=n===1?f2:f1;
@@ -316,7 +437,7 @@ function updateFinalists(){
     const list=document.getElementById('fp'+n+'-list');
     const disp=document.getElementById('fp'+n+'-display');
     list.innerHTML='';
-    if(r16.size===0){
+    if(b16.size===0){
       disp.innerHTML='<span class="empty">ベスト16を<br>選ぶと表示</span>';
       return;
     }
@@ -326,7 +447,7 @@ function updateFinalists(){
     } else {
       disp.innerHTML='<span class="empty">下から選択</span>';
     }
-    [...r16].filter(t=>t!==other).forEach(t=>{
+    [...b16].filter(t=>t!==other).forEach(t=>{
       const ti=teamInfo(t);
       const b=document.createElement('button');
       b.className='ftbtn'+(cur===t?' sel':'');
@@ -342,6 +463,7 @@ function updateFinalists(){
   });
 }
 
+/* ----- STEP 4: JAPAN ----- */
 function buildJapan(){
   const wrap=document.getElementById('japan-btns');
   ROUNDS.forEach(r=>{
@@ -355,6 +477,7 @@ function buildJapan(){
   });
 }
 
+/* ----- STEP 5: WINNER ----- */
 function updateWinner(){
   const area=document.getElementById('winner-area');
   area.innerHTML='';
@@ -375,13 +498,24 @@ function updateWinner(){
   area.appendChild(wrap);
 }
 
+/* ----- SUBMIT ----- */
 function doSubmit(){
   const name=document.getElementById('uname').value.trim();
   if(!name){alert('お名前を入力してください');return;}
-  if(r16.size<16){
-    document.getElementById('r16-warn').style.display='block';
-    alert('ベスト16を16カ国選んでください');
+
+  // Verify each group has exactly 2 picks
+  const incomplete=Object.entries(groupPicks).filter(([_,s])=>s.size!==2).map(([k])=>k);
+  if(incomplete.length>0){
+    document.getElementById('grp-warn').textContent='⚠ グループ '+incomplete.join(', ')+' が未完了です（各2チーム必要）';
+    document.getElementById('grp-warn').style.display='block';
     document.getElementById('group-area').scrollIntoView({behavior:'smooth'});
+    return;
+  }
+
+  if(b16.size<16){
+    document.getElementById('b16-warn').textContent='⚠ ベスト16を16チーム選んでください';
+    document.getElementById('b16-warn').style.display='block';
+    document.getElementById('b16-area').scrollIntoView({behavior:'smooth'});
     return;
   }
   if(!f1||!f2){alert('決勝進出チームを2チーム選んでください');return;}
@@ -389,20 +523,35 @@ function doSubmit(){
   if(!winner){alert('優勝国を選んでください');return;}
 
   document.getElementById('res-name-title').textContent=name;
-  const chips=document.getElementById('res-chips');
-  chips.innerHTML='';
-  [...r16].forEach(t=>{
+
+  // Group picks chips
+  const grpChips=document.getElementById('res-grp-chips');
+  grpChips.innerHTML='';
+  getAllGroupPicks().forEach(t=>{
     const c=document.createElement('span');
     c.className='chip';
     c.textContent=teamInfo(t).f+' '+t;
-    chips.appendChild(c);
+    grpChips.appendChild(c);
   });
+
+  // B16 chips
+  const b16Chips=document.getElementById('res-b16-chips');
+  b16Chips.innerHTML='';
+  [...b16].forEach(t=>{
+    const c=document.createElement('span');
+    c.className='chip b16-chip';
+    c.textContent=teamInfo(t).f+' '+t;
+    b16Chips.appendChild(c);
+  });
+
   const f1i=teamInfo(f1),f2i=teamInfo(f2),wi=teamInfo(winner);
   document.getElementById('res-f1').textContent=f1i.f+' '+f1;
   document.getElementById('res-f2').textContent=f2i.f+' '+f2;
   document.getElementById('res-w').textContent=wi.f+' '+winner;
   document.getElementById('res-jp').textContent='🇯🇵 '+jpRound;
-  document.getElementById('res-total').textContent=(16*100+1000+1000+1000+1000).toLocaleString();
+
+  const total=24*50+16*50+1000+1000+1000+1000;
+  document.getElementById('res-total').textContent=total.toLocaleString();
 
   document.getElementById('form-screen').style.display='none';
   document.getElementById('result-screen').style.display='block';
@@ -417,6 +566,7 @@ function goBack(){
 
 buildGroups();
 buildJapan();
+updateB16Area();
 updateFinalists();
 updateWinner();
 </script>
